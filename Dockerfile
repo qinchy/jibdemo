@@ -1,4 +1,4 @@
-FROM openjdk:jdk8
+FROM openjdk:8-jdk-alpine
 
 MAINTAINER qinchy <qinchy@msn.com>
 
