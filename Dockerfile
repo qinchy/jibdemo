@@ -1,9 +1,6 @@
 FROM openjdk:8-jdk-alpine
 
 MAINTAINER qinchy <qinchy@msn.com>
-
-RUN apt-get update; \
-    apt-get -y upgrade
 	
 RUN mkdir /home/git; \
     cd /home/git; \
