@@ -22,7 +22,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
-
+    <maven.build.timestamp.format>yyyyMMddhhmmss</maven.build.timestamp.format>
     </properties>
 
     <dependencies>
@@ -50,6 +50,15 @@
                 <artifactId>jib-maven-plugin</artifactId>
                 <version>0.9.11</version>
                 <configuration>
+                    <container>
+                        <jvmFlags>
+                            <jvmFlag>-Xms512m</jvmFlag>
+                        </jvmFlags>
+                        <ports>
+                            <port>8080</port>
+                        </ports>
+                        <useCurrentTimestamp>true</useCurrentTimestamp>
+                    </container>
                     <from>
                         <image>registry.cn-hangzhou.aliyuncs.com/java-jdk/openjdk:jdk8</image>
                         <!--<image>registry.hub.docker.com/openjdk:8u151-jre-alpine</image>-->
@@ -63,7 +72,7 @@
                         </auth>
                     </from>
                     <to>
-                        <image>registry.cn-hangzhou.aliyuncs.com/jibdemo/jibdemo</image>
+                        <image>registry.cn-hangzhou.aliyuncs.com/jibdemo/jibdemo:${maven.build.timestamp}</image>
                         <!--<image>registry.hub.docker.com/qinchy/jibdemo</image>-->
                         <!--<auth>-->
                             <!--<username>qinchy</username>-->
@@ -75,6 +84,7 @@
                         </auth>
                     </to>
                     <allowInsecureRegistries>true</allowInsecureRegistries>
+                    <extraDirectory>${project.basedir}/src/main/jib</extraDirectory>
                 </configuration>
                 <executions>
                     <execution>
