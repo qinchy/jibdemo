@@ -6,7 +6,7 @@ RUN mkdir /home/git; \
     cd /home/git; \
     sudo git clone https://github.com/qinchy/jibdemo.git -b master; \
     cd jibdemo; \
-    mvn clean package -Dmaven.test.skip=true -Dfile.encoding=UTF-8; \
+    mvn clean package -Dmaven.test.skip=true -Dfile.encoding=UTF-8 -DsendCredentialsOverHttp=true 
 	
 VOLUME /tmp
 
