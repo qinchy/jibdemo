@@ -22,7 +22,6 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
-    <maven.build.timestamp.format>yyyyMMddhhmmss</maven.build.timestamp.format>
     </properties>
 
     <dependencies>
@@ -43,6 +42,23 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>buildnumber-maven-plugin</artifactId>
+                <version>1.4</version>
+                <configuration>
+                    <timestampFormat>yyyyMMddHHmmss</timestampFormat>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>create-timestamp</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <inherited>false</inherited>
             </plugin>
 
             <plugin>
@@ -72,7 +88,7 @@
                         </auth>
                     </from>
                     <to>
-                        <image>registry.cn-hangzhou.aliyuncs.com/jibdemo/jibdemo:${maven.build.timestamp}</image>
+                        <image>registry.cn-hangzhou.aliyuncs.com/jibdemo/jibdemo:${timestamp}</image>
                         <!--<image>registry.hub.docker.com/qinchy/jibdemo</image>-->
                         <!--<auth>-->
                             <!--<username>qinchy</username>-->
